@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter_untitle2/colorstants.dart';
+import '../home/conversation_page.dart';
 enum ActionItems{
   GROUP_CHAT,
   ADD_FRIEND,
@@ -83,9 +84,9 @@ class _HomeScreenState extends State<HomeScreen> {
     ];
     _pageController = PageController(initialPage: _currentIndex);
     _pages=[
-      Container(color: Colors.red,),
+      ConversattionPage(),
       Container(color: Colors.white,),
-      Container(color: Colors.grey,),
+      Container(color: Colors.orange,),
       Container(color: Colors.blue,),
     ];
   }
