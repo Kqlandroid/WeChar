@@ -20,14 +20,17 @@ class NavigationIconView{
 
 }
 class HomeScreen extends StatefulWidget {
+
   @override
   _HomeScreenState createState() => _HomeScreenState();
 
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  PageController _pageController;
   int _currentIndex = 0;
   List<NavigationIconView> _navigationIconViews;
+  List<Widget> _pages;
   @override
   void initState() {
     // TODO: implement initState
@@ -78,6 +81,13 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
     ];
+    _pageController = PageController(initialPage: _currentIndex);
+    _pages=[
+      Container(color: Colors.red,),
+      Container(color: Colors.white,),
+      Container(color: Colors.grey,),
+      Container(color: Colors.blue,),
+    ];
   }
   _buildPopupMunuItem(int iconName,String title){
     return Row(
@@ -103,6 +113,7 @@ class _HomeScreenState extends State<HomeScreen> {
       onTap: (int index){
         setState(() {
           _currentIndex = index;
+          _pageController.animateToPage(_currentIndex, duration: Duration(milliseconds: 200), curve: Curves.easeOut);
         });
         index=index+1;
         print('点击的是第$_currentIndex个Tab');
@@ -167,8 +178,18 @@ class _HomeScreenState extends State<HomeScreen> {
           Container(width: 16.0,),
         ],
       ),
-      body: new Container(
-        color: Colors.white,
+      body: PageView.builder(
+        itemBuilder: (BuildContext context,int index){
+          return _pages[index];
+        },
+        controller: _pageController,
+        itemCount: _pages.length,
+        onPageChanged: (int index){
+          print("tab$index");
+          setState(() {
+            _currentIndex = index;
+          });
+        },
       ),
       bottomNavigationBar: botNavBar,
     );
