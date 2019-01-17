@@ -169,12 +169,18 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: _buildPopupMunuItem(0xe647, "帮助与反馈"),
                   value: ActionItems.HELP,
                 ),
+
               ];
             },
             icon: Icon(IconData(
                 0xea3b,
                 fontFamily: Constants.IconFontFamily
             ),size: 22.0),
+            onSelected: (ActionItems a){
+              setState(() {
+                print(a);
+              });
+            },
           ),
           Container(width: 16.0,),
         ],

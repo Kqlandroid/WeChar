@@ -31,6 +31,27 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
+  assets:
+    - assets/images/icon_circle_of_friends.png
+    - assets/images/icon_collection.png
+    - assets/images/icon_drift_bottle.png
+    - assets/images/icon_expression.png
+    - assets/images/icon_file_assistant.png
+    - assets/images/icon_game.png
+    - assets/images/icon_group_chat.png
+    - assets/images/icon_have_a_look.png
+    - assets/images/icon_label.png
+    - assets/images/icon_nearby_people.png
+    - assets/images/icon_new_friend.png
+    - assets/images/icon_play.png
+    - assets/images/icon_public_address.png
+    - assets/images/icon_qr_code.png
+    - assets/images/icon_search_for.png
+    - assets/images/icon_set_up.png
+    - assets/images/icon_shake.png
+    - assets/images/icon_shopping_bag.png
+    - assets/images/icon_small_ program.png
+    - assets/images/icon_wewhat_payment.png
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
@@ -70,4 +91,4 @@ flutter:
   fonts:
    - family: appIconFont
      fonts:
-     - asset: assetss/fonts/iconfont.ttf
+     - asset: assets/fonts/iconfont.ttf
