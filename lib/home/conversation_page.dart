@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_untitle2/model/conversation.dart' show Conversation,mockConversations;
 import '../colorstants.dart' show AppColors, AppStyles,Constants;
+
 class _ConversationItem extends StatelessWidget {
   const _ConversationItem({Key key,this.conversation}):assert(conversation != null),
         super(key: key);
