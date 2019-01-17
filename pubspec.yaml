@@ -51,6 +51,7 @@ flutter:
     - assets/images/icon_shake.png
     - assets/images/icon_shopping_bag.png
     - assets/images/icon_small_ program.png
+    - assets/images/icon_tx_news.png
     - assets/images/icon_wewhat_payment.png
 
   # The following line ensures that the Material Icons font is

@@ -84,7 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
     ];
     _pageController = PageController(initialPage: _currentIndex);
     _pages=[
-      ConversattionPage(),
+      ConversationPage(),
       Container(color: Colors.white,),
       Container(color: Colors.orange,),
       Container(color: Colors.blue,),
