@@ -11,6 +11,9 @@ class AppColors{
   static const NotifyDotBg = 0xffFD3B30;
   static const NotifyDotText = 0xffffffff;
   static const ConversationMutItemColor = 0xffd8d8d8;
+  static const DeviceInfoItemBg = 0xfff5f5f5;
+  static const DevceInfoItemText = 0xff606062;
+  static const DeviceInfoItemIcon = 0xff606062;
 }
 class AppStyles{
   static const TitleStyle = TextStyle(
@@ -25,6 +28,10 @@ class AppStyles{
     fontSize: 12.0,
     color: Color(AppColors.NotifyDotText),
   );
+  static const DeviceInfoItemTextStyle = TextStyle(
+    fontSize: 13.0,
+    color: Color(AppColors.DevceInfoItemText),
+  );
 }
 class Constants{
   static const IconFontFamily = "appIconFont";
@@ -32,4 +39,5 @@ class Constants{
   static const Dividerwith = 1.0;
   static const UnReadMsgNotifyDotSize = 20.0;
   static const ConversationMutIconSize = 18.0;
+//  static const DeviceInfoItemHeight = 32.0;
 }
