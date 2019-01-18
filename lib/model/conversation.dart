@@ -23,31 +23,41 @@ class Conversation{
   final int unreadMsgNum;
   final bool displayDot;
 
+  bool IsAvatarFromNet(){
+    if(this.avatar.indexOf("http")==0 || this.avatar.indexOf("https")==0){
+      return true;
+    }
+    return false;
+  }
 }
+
 const List<Conversation> mockConversations = [
   const Conversation(
-      avatar: 'https://randomuser.me/api/portraits/women/71.jpg',
+      avatar: 'assets/images/icon_file_assistant.png',
       title: '文件传输助手',
       des: '',
-      updateAt: '18:56'),
+      updateAt: '18:56',
+      unreadMsgNum: 1),
   const Conversation(
-      avatar: 'https://randomuser.me/api/portraits/men/82.jpg',
+      avatar: 'assets/images/icon_tx_news.png',
       title: '腾讯新闻',
       des: '豪车与出租剐蹭，俩车主当街出手',
-      updateAt: '19:33'),
+      updateAt: '19:33',
+      unreadMsgNum: 56),
   const Conversation(
-      avatar: 'https://randomuser.me/api/portraits/men/43.jpg',
+      avatar: 'assets/images/icon_game.png',
       title: '微信游戏',
       titleColor: 0xff586b95,
       des: '25元现金助力开学季',
-      updateAt: '09:56'),
+      updateAt: '09:56',
+      unreadMsgNum: 20),
   const Conversation(
       avatar: 'https://randomuser.me/api/portraits/women/29.jpg',
       title: 'LiYi',
       des: '今天要去打球么？',
       updateAt: '昨天',
       isMute: false,
-      unreadMsgNum: 0),
+      unreadMsgNum: 10),
   const Conversation(
     avatar: 'https://randomuser.me/api/portraits/women/54.jpg',
     title: 'Tina',
@@ -62,7 +72,7 @@ const List<Conversation> mockConversations = [
     des: '要去学校吗',
     updateAt: '18:56',
     isMute: true,
-    unreadMsgNum: 0,),
+    unreadMsgNum: 20,),
   const Conversation(
     avatar: 'https://randomuser.me/api/portraits/women/60.jpg',
     title: '张婷婷',
@@ -76,7 +86,7 @@ const List<Conversation> mockConversations = [
     des: '我很好',
     updateAt: '18:56',
     isMute: false,
-    unreadMsgNum: 0,),
+    unreadMsgNum: 90,),
   const Conversation(
     avatar: 'https://randomuser.me/api/portraits/men/0.jpg',
     title: 'Jack',
@@ -90,7 +100,7 @@ const List<Conversation> mockConversations = [
     des: '？',
     updateAt: '18:56',
     isMute: false,
-    unreadMsgNum: 0,),
+    unreadMsgNum: 99,),
   const Conversation(
     avatar: 'https://randomuser.me/api/portraits/men/42.jpg',
     title: 'GG',
@@ -104,5 +114,5 @@ const List<Conversation> mockConversations = [
     des: '这个电影好看吧',
     updateAt: '12:56',
     isMute: false,
-    unreadMsgNum: 0,),
+    unreadMsgNum: 76,),
 ];
