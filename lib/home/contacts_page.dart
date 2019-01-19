@@ -55,7 +55,7 @@ class _ContactsItem extends StatelessWidget {
             padding: EdgeInsets.only(left: 16.0, top: 4.0, right:16.0, bottom: 4.0),
             color: const Color(AppColors.ContactGroupTitleBg),
             alignment: Alignment.centerLeft,
-            child: Text(this.grouptitle,style: AppStyles.GroupTitleItemTextSyle ,),
+            child: Text(this.grouptitle,style: AppStyles.GroupTitleItemTextSyle),
           ),
           _button,
         ],
@@ -109,6 +109,7 @@ class _ContactsPageState extends State<ContactsPage> {
     // TODO: implement initState
     super.initState();
     _contacts..addAll(data.contacts)..addAll(data.contacts)..addAll(data.contacts);
+    _contacts.sort((Contacts a,Contacts b) => a.nameIndex.compareTo(b.nameIndex));
   }
   @override
   Widget build(BuildContext context) {
@@ -118,8 +119,15 @@ class _ContactsPageState extends State<ContactsPage> {
           return _functionButtons[index];
         }
         int _contIndex = index -_functionButtons.length;
+        bool _isGroupTitle = true;
         Contacts contacts = _contacts[_contIndex];
-        return _ContactsItem(avatar: contacts.avatar,title: contacts.name,grouptitle: contacts.nameIndex);
+        if(_contIndex>=1&&contacts.nameIndex==_contacts[_contIndex-1].nameIndex){
+          _isGroupTitle = false;
+        }
+        return _ContactsItem(
+            avatar: contacts.avatar,
+            title: contacts.name,
+            grouptitle: _isGroupTitle ? contacts.nameIndex : null);
       },itemCount: _contacts.length + _functionButtons.length,);
   }
 }
