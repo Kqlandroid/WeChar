@@ -47,4 +47,5 @@ class Constants{
   static const ConversationMutIconSize = 18.0;
 //  static const DeviceInfoItemHeight = 32.0;
   static const ContactAvatarSize = 36.0;
+  static const IndexBarWith = 24.0;
 }
