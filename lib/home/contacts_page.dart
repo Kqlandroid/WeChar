@@ -156,12 +156,11 @@ class _ContactsPageState extends State<ContactsPage> {
     super.dispose();
 
   }
-  String _getletter(BuildContext contxt,int tileHeight,Offset offset){
-    RenderBox _renderBox =contxt.findRenderObject();
+  String _getletter(BuildContext contxt,double tileHeight,Offset offset){
+    RenderBox _renderBox = contxt.findRenderObject();
     var local = _renderBox.globalToLocal(offset);
     int index = (local.dy~/tileHeight).clamp(0,INDEX_BAR_WORDS.length - 1);
-    print(index);
-    print(local);
+    print('下标$index');
     return INDEX_BAR_WORDS[index];
   }
   void _jumpToIndex(String letter){
@@ -177,17 +176,25 @@ class _ContactsPageState extends State<ContactsPage> {
     final List<Widget> _letters = INDEX_BAR_WORDS.map((String word){
       return Expanded(
           child: Container(
+            decoration: BoxDecoration(
+              border: Border(
+                bottom: BorderSide(
+                  color: Color(AppColors.DivderColor),
+                  width: 1.0,
+                ),
+              ),
+            ),
             padding: EdgeInsets.only(top: 5.0,bottom: 5.0),
             child: Text(word),
           ));
     }).toList();
-    final _totalHeight = constrains.biggest.height;
-    print(_totalHeight);
-    final tileHeight = _totalHeight ~/_letters.length;
-    print(tileHeight);
+    final double _totalHeight = constrains.biggest.height;
+//    print(_totalHeight);
+    final double tileHeight = _totalHeight /(_letters.length );
+//    print(tileHeight);
     return GestureDetector(
       onVerticalDragDown: (DragDownDetails details){
-        print('onVerticalDragDown');
+//        print('onVerticalDragDown');
         setState(() {
           widget._indexbrBg = Colors.black26;
           widget._currentLetter = _getletter(context,tileHeight,details.globalPosition);
@@ -196,7 +203,7 @@ class _ContactsPageState extends State<ContactsPage> {
 
       },
       onVerticalDragEnd: (DragEndDetails details){
-        print('onVerticalDragDown');
+//        print('onVerticalDragDown');
         setState(() {
           widget._indexbrBg = Colors.transparent;
           widget._currentLetter = null;
@@ -204,7 +211,7 @@ class _ContactsPageState extends State<ContactsPage> {
       },
 
       onVerticalDragCancel: (){
-        print('onVerticalDragCancel xxxx');
+//        print('onVerticalDragCancel xxxx');
         setState(() {
           widget._indexbrBg = Colors.transparent;
           widget._currentLetter = null;
@@ -212,6 +219,7 @@ class _ContactsPageState extends State<ContactsPage> {
       },
       onHorizontalDragUpdate: (DragUpdateDetails details){
         setState(() {
+          widget._indexbrBg = Colors.black26;
           widget._currentLetter = _getletter(context,tileHeight,details.globalPosition);
           _jumpToIndex(widget._currentLetter);
         });
